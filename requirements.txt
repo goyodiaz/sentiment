@@ -1,0 +1,7 @@
+streamlit
+feedparser
+nltk
+wordcloud
+matplotlib
+textblob
+sumy
