@@ -86,8 +86,8 @@ def main():
         
         st.session_state["keyword_articles"] = keyword_articles
 
-keyword_articles = st.session_state["keyword_articles"]
-article_choice= st.selectbox("select", keyword_articles) 
+keyword_articles = st.session_state.get("keyword_articles", [])
+article_choice= st.selectbox("select", keyword_articles)
 
 if article_choice:
     summarization_tab,sentiment_tab,wordcloud_tab= st.tabs(["Summarization", "Sentiment Analysis", "Word Cloud"])
