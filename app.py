@@ -9,8 +9,9 @@ from sumy.nlp.tokenizers import Tokenizer
 from sumy.parsers.plaintext import PlaintextParser
 
 @st.experimental_singleton
-def download_vader_lexixon():
+def download_lexixons():
     nltk.download('vader_lexicon')
+    nltk.download('punkt')
 
 # Function to collect RSS feed URLs
 def collect_rss_feeds():
@@ -56,7 +57,7 @@ def summarize_text(text):
 # Main function
 def main():
     st.set_page_config(page_title="RSS Feed Reader", page_icon=":newspaper:", layout="wide")
-    download_vader_lexixon()
+    download_lexixons()
     st.title("Welcome to the RSS Feed Reader")
     st.markdown("This application allows you to fetch articles from multiple RSS feed URLs, search for keywords in the articles and then view the sentiment analysis, word clouds and summarization of the articles containing the keywords.")
     btn_st=False
