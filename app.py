@@ -86,26 +86,26 @@ def main():
         
         st.session_state["keyword_articles"] = keyword_articles
 
-keyword_articles = st.session_state.get("keyword_articles", [])
-article_choice= st.selectbox("select", keyword_articles)
+    keyword_articles = st.session_state.get("keyword_articles", [])
+    article_choice= st.selectbox("select", keyword_articles)
 
-if article_choice:
-    summarization_tab,sentiment_tab,wordcloud_tab= st.tabs(["Summarization", "Sentiment Analysis", "Word Cloud"])
-    with sentiment_tab:
-        st.subheader("Sentiment Analysis")
-        sentiment = sentiment_analysis(article_choice)
-        st.write(sentiment)
-    with wordcloud_tab:
-        st.subheader("Word Cloud")
-        generate_wordcloud(article_choice)
+    if article_choice:
+        summarization_tab,sentiment_tab,wordcloud_tab= st.tabs(["Summarization", "Sentiment Analysis", "Word Cloud"])
+        with sentiment_tab:
+            st.subheader("Sentiment Analysis")
+            sentiment = sentiment_analysis(article_choice)
+            st.write(sentiment)
+        with wordcloud_tab:
+            st.subheader("Word Cloud")
+            generate_wordcloud(article_choice)
 
 
 
-    with summarization_tab:
-        st.subheader("Summarization")
-        summary = summarize_text(article_choice)
-        st.write(summary)
-            
+        with summarization_tab:
+            st.subheader("Summarization")
+            summary = summarize_text(article_choice)
+            st.write(summary)
+
 
 if __name__== "__main__":
     main()
